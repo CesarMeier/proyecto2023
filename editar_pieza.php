@@ -15,7 +15,7 @@ $error = "";
 
 $id=$_POST['idpieza'];
 
- // Crea una variable de sesión llamada ids para guardar el id del socio recibido 
+ // Crea una variable de sesión llamada idp para guardar el id del socio recibido 
 
 $_SESSION['idp']=$id;
 

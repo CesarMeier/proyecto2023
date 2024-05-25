@@ -38,7 +38,7 @@ $fila=mysqli_fetch_array($result);
   <div class="text-center mt-5 mb-2 text-primary"><h2>Agregar Pieza</h2></div>	
   <div class="text-secondary"><p><small>* Dato Obligatorio</small></p></div>
 
-  <form class="row g-3" action="insertar_datos_pieza.php" method="post" id="miFormulario" >
+  <form class="row g-3" action="insertar_datos_pieza.php" method="post" >
 
   <div class="col-sm-6">
     <label for="nombre" class="form-label">* Nombre Donante</label>
@@ -82,7 +82,19 @@ $fila=mysqli_fetch_array($result);
   </div>
   
   
- <!-- <div class="col-sm-6 mb-3"> 
+  
+  <div class="col-sm-6">
+    <label for="observacion" class="form-label">* Observacion</label>
+    <input type="text" class="form-control" name="observacion" id="observacion" placeholder="Ingresar Observacion" required>
+  </div>
+
+ <!-- <div class="col-sm-6">
+    <label for="clasificacion" class="form-label">* Clasificacion</label>
+    <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="Ingresar clasificacion" required>
+  </div>
+-->
+
+<div class="col-sm-6 mb-3"> 
   <label for="clasificacion" class="form-label">* Clasificacion</label>
   <select class="form-select " aria-label="Default select example" name="clasificacion">
   <option selected>Seleccione clasificacion</option>
@@ -96,22 +108,12 @@ $fila=mysqli_fetch_array($result);
         <option value="oologia">Oologia</option>
   </select>
   </div>
--->
-  <div class="col-sm-6">
-    <label for="observacion" class="form-label">* Observacion</label>
-    <input type="text" class="form-control" name="observacion" id="observacion" placeholder="Ingresar Observacion" required>
-  </div>
-
-  <div class="col-sm-6">
-    <label for="clasificacion" class="form-label">* Clasificacion</label>
-    <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="Ingresar clasificacion" required>
-  </div>
 
 
 </select>
   </div>
   <div class="col-12 text-center">
-  <button type="button" onclick="siguiente()">Siguiente</button>
+  <button type="submit" class="btn btn-primary btn-sm" name="btn_agregar" id="agregar">Agregar</button>
   <a class="btn btn-primary btn-sm ms-2" href="listado_piezas.php" role="button">Cancelar</a>
   </div>
 
@@ -134,7 +136,7 @@ $fila=mysqli_fetch_array($result);
 
         }else{
 
-        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>Pieza exitosamente agregado!</strong><a href='listado_piezas.php' class='text-primary ms-3'>Volver al Listado</a></div></div>";  
+        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>Pieza exitosamente agregada!</strong><a href='form_agregar_clasificacion.php' class='text-primary ms-3'>Siguiente formulario</a></div></div>";  
       
       }  
   } 
@@ -153,15 +155,6 @@ $fila=mysqli_fetch_array($result);
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/barra.js"></script>
 
-  <script>
-        function siguiente() {
-            // Cambiar la acción del formulario para que apunte a la siguiente página
-            document.getElementById("miFormulario").action = "form_agregar_clasificacion.php";
-            
-            // Enviar el formulario
-            document.getElementById("miFormulario").submit();
-        }
-    </script>
 
 </body>
 

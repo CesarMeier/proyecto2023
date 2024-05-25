@@ -1,9 +1,31 @@
 <?php
+session_start();
 require_once "conexion.php";
+require_once "fpaginacion.php";
 
-$sql="SELECT * FROM pieza,donante WHERE (donante.id=pieza.donante_id)";
+//$sql="SELECT * FROM pieza,donante WHERE (donante.id=pieza.donante_id)";
 
-$result=mysqli_query($conex,$sql);
+//$result=mysqli_query($conex,$sql);
+
+
+//Paginacion
+$cantidadregistrosmax=contar_registros($conex);
+
+if (isset($_POST["clb"]) && !empty($_POST["clb"])){
+    $valor=$_POST["clb"];
+    $sql="SELECT * FROM pieza,donante WHERE (donante.id=pieza.donante_id)";
+    $result=mysqli_query($conex,$sql);
+} else {
+
+if (!isset($_GET["pg"])){
+    $pag=0;
+    $result=paginacion($conex, $pag);
+}else{
+    $pag=$_GET["pg"];
+    $result=paginacion($conex, $pag);
+}
+}
+
         
 ?>
 
@@ -67,6 +89,7 @@ $result=mysqli_query($conex,$sql);
             </thead>
         
             <?php
+            
             if (mysqli_num_rows($result)>0){
             ?>
 
@@ -108,6 +131,38 @@ $result=mysqli_query($conex,$sql);
             </tbody>
     
         </table></div>
+
+        
+    <div class="container "> 
+        <ul class="pagination justify-content-center">
+
+            <?php
+                $itemspagina= ceil($cantidadregistrosmax/6);
+                $paginaActual= isset($_GET['pg']) ? $_GET['pg'] : 0;
+
+            //Pagina Anterior
+            if ($paginaActual > 0){
+                echo "<li class='page-item'><a class='page-link' href='listado_piezas.php?pg=".($paginaActual-1)."'><<</a></li>";
+            }
+
+            //Pagina Actual
+            if ($itemspagina>1){
+                echo "<li class='page-item'><a class='page-link' href='listado_piezas.php?pg=".$paginaActual."'>".($paginaActual+1)."</a></li>";
+                echo "<li class='page-item disabled'><a class='page-link' href='#'> de ".$itemspagina."</a></li>";
+            }else {
+                echo "<li class='page-item'><a class='page-link' href='listado_piezas.php?pg=".$paginaActual."'>".($paginaActual+1)."</a></li>";
+                echo "<li class='page-item disabled'><a class='page-link' href='#'> de 1</a></li>";
+            }
+
+            //Pagina Siguiente
+            if ($paginaActual < $itemspagina - 1){
+                echo "<li class='page-item'><a class='page-link' href='listado_piezas.php?pg=".($paginaActual+1)."'>>></a></li>";
+            }
+            ?>
+
+        </ul>
+    </div>
+
 	<?php
 	    }else{
 

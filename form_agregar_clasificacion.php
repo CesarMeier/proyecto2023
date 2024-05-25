@@ -3,9 +3,13 @@ session_start();
 
 require_once "conexion.php";
 
-$sql="SELECT pieza.id FROM pieza ";
+
+$idp = $_SESSION['idpieza'];
+
+$sql="SELECT pieza.* FROM pieza WHERE pieza.id=".$idp;
 
 
+//die($_SESSION['clas']);
 $result=mysqli_query($conex,$sql); 
 
 $fila=mysqli_fetch_array($result);
@@ -38,9 +42,10 @@ $fila=mysqli_fetch_array($result);
   <div class="text-center mt-5 mb-2 text-primary"><h2>Agregar datos de clasificacion</h2></div>	
   <div class="text-secondary"><p><small>* Datos obligatorios</small></p></div>
 
-  <form class="row g-3" action="insertar" method="post" >
+  <form class="row g-3"  method="post" action="insertar_datos_clasificacion.php" >
 
-  
+  <input type="hidden" class="form-control" name="clas" id="clas" value="<?php echo $fila['clasificacion'];?>">
+
   <div class="col-sm-6">
     <label for="reino" class="form-label">Reino</label>
     <input type="text" class="form-control" name="reino" id="reino" placeholder="Ingresar reino">
@@ -69,7 +74,7 @@ $fila=mysqli_fetch_array($result);
 
   <div class="col-sm-6 mb-3">
     <label for="genero" class="form-label">Genero</label>
-    <input type="genero" class="form-control" name="genero" id="genero" placeholder="Ingresar genero">
+    <input type="text" class="form-control" name="genero" id="genero" placeholder="Ingresar genero">
   </div>
   
 
@@ -80,7 +85,7 @@ $fila=mysqli_fetch_array($result);
   </div>
 
   <?php 
-  if($_POST['clasificacion']=="zoologia"){
+  if($fila['clasificacion']=="zoologia"){
     ?> 
 
     <div class="col-sm-6">
@@ -89,7 +94,7 @@ $fila=mysqli_fetch_array($result);
     </div>
 
   <?php  
-  }else if($_POST['clasificacion']=="botanica"){ 
+  }else if($fila['clasificacion'] =="botanica"){ 
     ?>
     
     <div class="col-sm-6">
@@ -106,7 +111,7 @@ $fila=mysqli_fetch_array($result);
 
 
 <?php   
-} else if($_POST['clasificacion']=="paleontologia"){  
+} else if($fila['clasificacion'] =="paleontologia"){  
     ?>
 
     <div class="col-sm-6">
@@ -122,7 +127,7 @@ $fila=mysqli_fetch_array($result);
 
 
     <?php  
-}else if($_POST['clasificacion']=="arqueologia"){ 
+}else if($fila['clasificacion'] =="arqueologia"){ 
     ?>
 
         <div class="col-sm-6">
@@ -142,40 +147,40 @@ $fila=mysqli_fetch_array($result);
 
 
     <?php 
- }else if($_POST['clasificacion']=="osteologia"){
+ }else if($fila['clasificacion']=="osteologia"){
      ?>
 
      <div class="col-sm-6">
         <label for="clasificacion" class="form-label">* Clasificacion</label>
-        <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="" required >
+        <input type="text" class="form-control" name="clasifi" id="clasifi" placeholder="" required >
     </div>
 
     <?php 
- }else if($_POST['clasificacion']=="geologia"){ 
+ }else if($fila['clasificacion'] =="geologia"){ 
     ?>
 
     <div class="col-sm-6">
         <label for="clasificacion" class="form-label">* Clasificacion Rocas</label>
-        <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="Por ejemplo igneas, sedimentarias, etc..." required >
+        <input type="text" class="form-control" name="clasifi" id="clasifi" placeholder="Por ejemplo igneas, sedimentarias, etc..." required >
     </div>
 
     <?php 
- }else if($_POST['clasificacion']=="ictiologia"){
+ }else if($fila['clasificacion']=="ictiologia"){
      ?>
 
     <div class="col-sm-6">
         <label for="clasificacion" class="form-label">* Clasificacion</label>
-        <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="Por ejemplo marinos, agua dulce.." required >
+        <input type="text" class="form-control" name="clasifi" id="clasifi" placeholder="Por ejemplo marinos, agua dulce.." required >
     </div>
       
 
     <?php 
- }else if($_POST['clasificacion']=="oologia"){
+ }else if($fila['clasificacion']=="oologia"){
      ?>
 
         <div class="col-sm-6">
         <label for="clasificacion" class="form-label">* Clasificacion</label>
-        <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="" required >
+        <input type="text" class="form-control" name="clasifi" id="clasifi" placeholder="" required >
     </div>
 
     <div class="col-sm-6">
@@ -185,6 +190,7 @@ $fila=mysqli_fetch_array($result);
 
     <?php
     };
+
     ?>
 
 </select>
@@ -213,7 +219,7 @@ $fila=mysqli_fetch_array($result);
 
         }else{
 
-        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>Pieza exitosamente agregado!</strong><a href='listado_piezas.php' class='text-primary ms-3'>Volver al Listado</a></div></div>";  
+        echo "<div class='text-center mt-4 mb-5'><div class='alert alert-success' role='alert'><strong>Clasificacion exitosamente agregada!</strong><a href='listado_piezas.php' class='text-primary ms-3'>Volver al Listado</a></div></div>";  
       
       }  
   } 
