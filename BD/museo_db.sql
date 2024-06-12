@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-04-2024 a las 22:31:50
+-- Tiempo de generación: 12-06-2024 a las 08:01:09
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -73,6 +73,15 @@ CREATE TABLE `donante` (
   `apellido` varchar(45) DEFAULT NULL,
   `fecha` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `donante`
+--
+
+INSERT INTO `donante` (`id`, `nombre`, `apellido`, `fecha`) VALUES
+(1, 'cesar', 'casitas', '2024-05-25'),
+(2, 'Cesar', 'diaz', '2024-05-25'),
+(3, 'Cesar', 'casitas', '2024-05-25');
 
 -- --------------------------------------------------------
 
@@ -186,6 +195,15 @@ CREATE TABLE `pieza` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `pieza`
+--
+
+INSERT INTO `pieza` (`id`, `numinventario`, `especie`, `estadoconservacion`, `fecha_ingreso`, `cantidadpiezas`, `clasificacion`, `observacion`, `donante_id`, `usuario_id`) VALUES
+(1, '1', 'naz', 'duro', '2024-05-24', '2', 'zoologia', 'sadsadsa', 1, 18),
+(2, '1', 'naz', 'duro', '2024-05-25', '2', 'ictiologia', 'sadsadsa', 2, 18),
+(3, '1', 'saad', 'duro', '2024-05-17', '2', 'osteologia', 'sadsadsa', 3, 18);
+
 -- --------------------------------------------------------
 
 --
@@ -209,9 +227,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `dni`, `nombre`, `apellido`, `telefono`, `email`, `clave`, `fecha_registro`, `tipo_usuario`) VALUES
-(9, '44135797', 'cesar', 'diaz', '3857435262', 'cesarmeier@gmail.com', '$2y$10$FPJReUnVUN1JLM32/j8uceywJgk2eAmgqK.dqu', '2024-04-15', 'administrador'),
-(10, '44135799', 'armando', 'casitas', '3234433212', 'armandocasas@gmail.com', '$2y$10$x9au4tovZo847.wv4rk2CewZMPunNegXMX6DWo', '2024-04-15', 'gerente'),
-(11, '22123123', 'armando', 'casitas', '3234433212', 'armandocasas@gmail.com', '$2y$10$EjsrqRN0fdDfqSwz7yNr7uqGWUwmXbtB4MUo.c', '2024-04-16', 'administrador');
+(18, '44135799', 'cesario', 'diaz', '3857435262', 'cesarmeier@gmail.com', '$2y$10$fh9PhJq185NF0H/8SMPsO..iNV8h2PayIHJglQ.aoddcZeHPHkVue', '2024-06-08', 'gerente'),
+(20, '44135797', 'cesar', 'diaz', '3857435262', 'cesarmeier@gmail.com', '$2y$10$kjtWAuBHqZoUeULYovluH.Jy9T0F4Y2km0mStjSH20r7wY.cy5NJi', '2024-06-05', 'administrador');
 
 -- --------------------------------------------------------
 
@@ -332,7 +349,7 @@ ALTER TABLE `botanica`
 -- AUTO_INCREMENT de la tabla `donante`
 --
 ALTER TABLE `donante`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `geologia`
@@ -368,13 +385,13 @@ ALTER TABLE `paleontologia`
 -- AUTO_INCREMENT de la tabla `pieza`
 --
 ALTER TABLE `pieza`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `zoologia`
