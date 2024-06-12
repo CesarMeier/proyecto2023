@@ -1,11 +1,9 @@
 <?php
-
 function contar_registros($conex){
     $sql="SELECT count(id) as cantidadtotal FROM pieza";
     $result=mysqli_query($conex,$sql);
     $fila=mysqli_fetch_assoc($result);
     return $fila['cantidadtotal'];
-
 }
 
 function paginacion($conex, $pag){
@@ -14,7 +12,4 @@ function paginacion($conex, $pag){
     $result=mysqli_query($conex, $sql);
     return $result;
 }
-
-
-
 ?>

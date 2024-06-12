@@ -1,20 +1,14 @@
 <?php
-
 session_start();
-
 require_once "conexion.php";
 
-if (!isset($_GET['msje'])){
-
-    $id=$_POST['id'];
-
+if(!isset($_GET['msje'])){
+  $id=$_POST['id'];
 }else{
-
-      $id=$_SESSION['idp'];
+  $id=$_SESSION['idp'];
 }     
 
 $sql="SELECT pieza.* FROM pieza WHERE pieza.idpieza=".$id;
-
 
 $result=mysqli_query($conex,$sql); 
 
@@ -22,9 +16,7 @@ $fila=mysqli_fetch_array($result);
 
 //die($sql);
 //echo $sql;
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -38,22 +30,18 @@ $fila=mysqli_fetch_array($result);
 </head>
 <body>
 
-
-  <?php
-
-    include('header.php');
-
-  ?>
-
+<?php
+include('header.php');
+?>
 
   <section>
 
-  <div class="container mt-2 mb-5">
-  <div class="text-center my-5 text-success"><h2>Editar Datos Pieza</h2></div>	
+    <div class="container mt-2 mb-5">
+      <div class="text-center my-5 text-success"><h2>Editar Datos Pieza</h2></div>	
 
-  <form class="row g-3" action="editar.php" method="post">
+      <form class="row g-3" action="editar.php" method="post">
 
-  <input type="hidden" class="form-control" name="idpieza" id="idpieza" value="<?php echo $fila['idpieza'];?>">
+      <input type="hidden" class="form-control" name="idpieza" id="idpieza" value="<?php echo $fila['idpieza'];?>">
 
   <div class="col-sm-6 mb-3">
   <label for="numinventario" class="form-label">* Numero de Inventario</label>

@@ -11,25 +11,20 @@ session_start();
     <title>Inicio</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-   
 </head>
 <body>
 
-
-  <?php
-    include('header.php');
-    include('portafolio.php');
-    include('info.php');
-    include('footer.php');
-  ?>
+<?php
+include('header.php');
+include('portafolio.php');
+include('info.php');
+include('footer.php');
+?>
   
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <script src="js/barra.js"></script>
 
 </body>
-
 </html>
