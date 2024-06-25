@@ -12,5 +12,4 @@ $sql="Delete from usuario where id=$id";
 mysqli_query($conex,$sql);
 
 header("Location:listado_usuarios.php");
-
 ?>
