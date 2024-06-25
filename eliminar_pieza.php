@@ -7,7 +7,6 @@ $donante = $_POST['idd'];
 
 $sql ="select * from ".$opcionSelec."where pieza_id=".$idpieza;
 
-
 $result=mysqli_query($conex,$sql); 
 
 $fila=mysqli_fetch_array($result);

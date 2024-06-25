@@ -11,7 +11,6 @@ if(!isset($_GET['msje'])){
 $sql="SELECT usuario.* FROM usuario WHERE usuario.id=".$id;
 
 $result=mysqli_query($conex,$sql); 
-
 $fila=mysqli_fetch_array($result);
 ?>
 

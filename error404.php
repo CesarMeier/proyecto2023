@@ -13,11 +13,9 @@
         <?php
             include('header.php');
         ?>
-            
+     
         <!-- Index.php contiene una imágen de Error 404 (Página No Encontrada) --> 
-        
         <section>
-        
         <!-- ERROR 404 Página No Encontrada  -->
             <div class="container"> 
                 <div class="card bg-white border-secondary mt-5 mb-5">  

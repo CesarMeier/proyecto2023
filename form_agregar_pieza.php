@@ -5,7 +5,6 @@ require_once "conexion.php";
 $sql="SELECT donante.* FROM donante";
 
 $result=mysqli_query($conex,$sql); 
-
 $fila=mysqli_fetch_array($result);
 ?>
 
@@ -101,7 +100,7 @@ $fila=mysqli_fetch_array($result);
 					</form>
 
 				</div>
-				
+
 				<?php
 				// Uso de GET para mostrar Mensaje resultante 
 				if (isset($_GET["mensaje"])){

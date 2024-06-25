@@ -8,7 +8,6 @@ $sql="SELECT pieza.* FROM pieza WHERE pieza.id=".$idp;
 
 //die($_SESSION['clas']);
 $result=mysqli_query($conex,$sql); 
-
 $fila=mysqli_fetch_array($result);
 ?>
 
