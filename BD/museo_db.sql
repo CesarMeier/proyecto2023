@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-06-2024 a las 08:01:09
+-- Tiempo de generación: 25-06-2024 a las 05:15:30
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -68,20 +68,11 @@ CREATE TABLE `botanica` (
 --
 
 CREATE TABLE `donante` (
-  `id` int(11) NOT NULL,
+  `idd` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `apellido` varchar(45) DEFAULT NULL,
   `fecha` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `donante`
---
-
-INSERT INTO `donante` (`id`, `nombre`, `apellido`, `fecha`) VALUES
-(1, 'cesar', 'casitas', '2024-05-25'),
-(2, 'Cesar', 'diaz', '2024-05-25'),
-(3, 'Cesar', 'casitas', '2024-05-25');
 
 -- --------------------------------------------------------
 
@@ -195,15 +186,6 @@ CREATE TABLE `pieza` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `pieza`
---
-
-INSERT INTO `pieza` (`id`, `numinventario`, `especie`, `estadoconservacion`, `fecha_ingreso`, `cantidadpiezas`, `clasificacion`, `observacion`, `donante_id`, `usuario_id`) VALUES
-(1, '1', 'naz', 'duro', '2024-05-24', '2', 'zoologia', 'sadsadsa', 1, 18),
-(2, '1', 'naz', 'duro', '2024-05-25', '2', 'ictiologia', 'sadsadsa', 2, 18),
-(3, '1', 'saad', 'duro', '2024-05-17', '2', 'osteologia', 'sadsadsa', 3, 18);
-
 -- --------------------------------------------------------
 
 --
@@ -271,7 +253,7 @@ ALTER TABLE `botanica`
 -- Indices de la tabla `donante`
 --
 ALTER TABLE `donante`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idd`);
 
 --
 -- Indices de la tabla `geologia`
@@ -349,7 +331,7 @@ ALTER TABLE `botanica`
 -- AUTO_INCREMENT de la tabla `donante`
 --
 ALTER TABLE `donante`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `geologia`
@@ -385,7 +367,7 @@ ALTER TABLE `paleontologia`
 -- AUTO_INCREMENT de la tabla `pieza`
 --
 ALTER TABLE `pieza`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -397,7 +379,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `zoologia`
 --
 ALTER TABLE `zoologia`
-  MODIFY `idz` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -449,7 +431,7 @@ ALTER TABLE `paleontologia`
 -- Filtros para la tabla `pieza`
 --
 ALTER TABLE `pieza`
-  ADD CONSTRAINT `fk_pieza_donante` FOREIGN KEY (`donante_id`) REFERENCES `donante` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pieza_donante` FOREIGN KEY (`donante_id`) REFERENCES `donante` (`idd`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_pieza_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
