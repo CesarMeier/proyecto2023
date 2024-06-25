@@ -16,11 +16,9 @@ $sql ="SELECT * FROM pieza,zoologia where (pieza.id=zoologia.pieza_id) and pieza
 die($sql);
 
 $result=mysqli_query($conex,$sql);
-
 $fila=mysqli_fetch_array($result);
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -54,8 +54,8 @@ $fila=mysqli_fetch_array($result);
                         <input type="text" class="form-control" name="estadoconservacion" id="estadoconservacion" value="<?php echo $fila['estadoconservacion'];?>" disabled>
                     </div>
                     <div class="col-sm-6 mb-3">
-                        <label for="fechaIngreso" class="form-label">* Fecha Ingreso</label>
-                        <input type="date" class="form-control" name="fechaIngreso" id="fechaIngreso" value="<?php echo $fila['fecha_ingreso'];?>" disabled>
+                        <label for="fecha_ingreso" class="form-label">* Fecha Ingreso</label>
+                        <input type="date" class="form-control" name="fecha_ingreso" id="fecha_ingreso" value="<?php echo $fila['fecha_ingreso'];?>" disabled>
                     </div>
                     <div class="col-sm-6 mb-3">
                         <label for="cantidadpieza" class="form-label">* Cantidad de piezas</label>
